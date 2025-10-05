@@ -3,23 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InspiHER - Women in STEM</title>
+  <title>💡 InspiHER: Women in STEM</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>💡 InspiHER: Women in STEM</h1>
     <div class="card" id="card">
-      <img id="photo" src="" alt="Scientist Photo" />
+      <img id="photo" src="" alt="Scientist Photo">
       <h2 id="name"></h2>
-      <h3 id="field"></h3>
       <p id="bio"></p>
     </div>
-    <button onclick="newInspiration()">✨ Inspire Me</button>
+    <button id="inspireBtn">✨ Inspire Me</button>
+    <footer>Made with ❤️ by Krisha</footer>
   </div>
 
-  <footer>Made with ❤️ by Krisha</footer>
+  <script>
+    const scientists = [
+      {
+        name: "Marie Curie",
+        bio: "The first woman to win a Nobel Prize and the only person to win in two different sciences — physics and chemistry.",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Marie_Curie_c1920.jpg"
+      },
+      {
+        name: "Katherine Johnson",
+        bio: "NASA mathematician whose calculations were critical to the success of U.S. spaceflights — including Apollo 11.",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Katherine_Johnson_1983.jpg"
+      },
+      {
+        name: "Ada Lovelace",
+        bio: "Regarded as the world’s first computer programmer for her work on Charles Babbage’s Analytical Engine.",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg"
+      },
+      {
+        name: "Kalpana Chawla",
+        bio: "The first woman of Indian origin in space, who inspired millions with her courage and determination.",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Kalpana_Chawla%2C_NASA_photo_portrait_in_orange_suit.jpg"
+      },
+      {
+        name: "Dr. Tessy Thomas",
+        bio: "Known as the 'Missile Woman of India' — Project Director for Agni-IV missile and a leader in India’s DRDO program.",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Tessy_Thomas_-_Missile_Woman_of_India.jpg"
+      }
+    ];
 
-  <script src="script.js"></script>
+    const photo = document.getElementById("photo");
+    const nameEl = document.getElementById("name");
+    const bioEl = document.getElementById("bio");
+    const inspireBtn = document.getElementById("inspireBtn");
+
+    function showRandomScientist() {
+      const random = scientists[Math.floor(Math.random() * scientists.length)];
+      photo.src = random.photo;
+      nameEl.textContent = random.name;
+      bioEl.textContent = random.bio;
+    }
+
+    inspireBtn.addEventListener("click", showRandomScientist);
+
+    // Show one scientist by default
+    showRandomScientist();
+  </script>
 </body>
 </html>
