@@ -14,6 +14,7 @@ InspiHER is a simple yet powerful web app that celebrates and empowers women in 
 **🌐 Live Demo:** 👉 View InspiHER on (https://krisha-codes.github.io/InspireHer/)
 
 **🛠️ Tech Stack**
+
 HTML5
 
 CSS3
