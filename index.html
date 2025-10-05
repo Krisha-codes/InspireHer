@@ -10,46 +10,62 @@
   <div class="container">
     <h1>💡 InspiHER: Women in STEM</h1>
     <div class="card" id="card">
-      <img id="photo" src="" alt="Scientist Photo">
+      <div class="image-container">
+        <img id="photo" src="" alt="Scientist Photo" />
+      </div>
       <h2 id="name"></h2>
       <p id="bio"></p>
+      <p id="achievements" class="achievements"></p>
+      <p id="message" class="message"></p>
     </div>
     <button id="inspireBtn">✨ Inspire Me</button>
-    <footer>Made with ❤️ by Krisha</footer>
+    <footer>Made with 💜 by Krisha</footer>
   </div>
 
   <script>
     const scientists = [
       {
         name: "Marie Curie",
-        bio: "The first woman to win a Nobel Prize and the only person to win in two different sciences — physics and chemistry.",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Marie_Curie_c1920.jpg"
+        bio: "The first woman to win a Nobel Prize and the only person to win in two sciences — physics and chemistry.",
+        achievements: "Discovered polonium and radium, pioneering research in radioactivity.",
+        photo: "https://i.imgur.com/xsW1pPe.jpg",
+        message: "Curiosity and perseverance can illuminate the world — just as she did."
       },
       {
         name: "Katherine Johnson",
-        bio: "NASA mathematician whose calculations were critical to the success of U.S. spaceflights — including Apollo 11.",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Katherine_Johnson_1983.jpg"
+        bio: "A NASA mathematician whose precise calculations were critical to the success of Apollo 11 and U.S. spaceflights.",
+        achievements: "Helped send astronauts to the Moon despite racial and gender barriers.",
+        photo: "https://i.imgur.com/XOTU5Jm.jpg",
+        message: "Your brilliance matters — even when the world doesn’t yet see it."
       },
       {
         name: "Ada Lovelace",
-        bio: "Regarded as the world’s first computer programmer for her work on Charles Babbage’s Analytical Engine.",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg"
+        bio: "Often regarded as the world’s first computer programmer.",
+        achievements: "Predicted that computers could do more than math — they could create art and music.",
+        photo: "https://i.imgur.com/ijSsnvZ.jpg",
+        message: "Innovation begins when imagination meets logic."
       },
       {
         name: "Kalpana Chawla",
-        bio: "The first woman of Indian origin in space, who inspired millions with her courage and determination.",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Kalpana_Chawla%2C_NASA_photo_portrait_in_orange_suit.jpg"
+        bio: "The first woman of Indian origin in space who inspired millions with her courage.",
+        achievements: "Flew on two NASA space missions, symbolizing limitless possibilities.",
+        photo: "https://i.imgur.com/7zM8rM1.jpg",
+        message: "Dreams are not bound by the sky — they begin beyond it."
       },
       {
         name: "Dr. Tessy Thomas",
-        bio: "Known as the 'Missile Woman of India' — Project Director for Agni-IV missile and a leader in India’s DRDO program.",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Tessy_Thomas_-_Missile_Woman_of_India.jpg"
+        bio: "Known as India’s 'Missile Woman' — a trailblazer in aerospace and defense technology.",
+        achievements: "Project Director for Agni-IV missile, leading DRDO’s missile development programs.",
+        photo: "https://i.imgur.com/l1bP6TH.jpg",
+        message: "Leadership is not about strength — it’s about vision and resilience."
       }
     ];
 
     const photo = document.getElementById("photo");
     const nameEl = document.getElementById("name");
     const bioEl = document.getElementById("bio");
+    const achievementsEl = document.getElementById("achievements");
+    const messageEl = document.getElementById("message");
     const inspireBtn = document.getElementById("inspireBtn");
 
     function showRandomScientist() {
@@ -57,11 +73,18 @@
       photo.src = random.photo;
       nameEl.textContent = random.name;
       bioEl.textContent = random.bio;
+      achievementsEl.textContent = "🌟 " + random.achievements;
+      messageEl.textContent = "💬 " + random.message;
     }
 
-    inspireBtn.addEventListener("click", showRandomScientist);
+    inspireBtn.addEventListener("click", () => {
+      document.querySelector(".card").classList.add("fade");
+      setTimeout(() => {
+        showRandomScientist();
+        document.querySelector(".card").classList.remove("fade");
+      }, 300);
+    });
 
-    // Show one scientist by default
     showRandomScientist();
   </script>
 </body>
